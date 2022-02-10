@@ -1,36 +1,45 @@
 (ns clojure-library.book)
 
-"jean"                        ; string
-12                            ; int
-12.1
-:nom                          ; keyword
-{:nom "jean" :age 12}         ; map ⇔ une structure clé - valeur
-[1 2 3 4]                     ; un type de collection
-[1 "tata" nil 4.0]            ; une collection étrange mais valide
-
-(def numbers [1 2 3])
-(def letters #{:a :b "c" nil})
 (def books [{:id 1
              :title "Romeo and Juliet"
              :author "William Shakespeare"
              :language :en
              :tags [:drama :tragedy :romance]
+             :pages 336
              }
             {:id 2
              :title "Roméo et Juliette"
              :author "William Shakespeare"
              :language :fr
              :tags [:drama :tragedy :romance]
+             :pages 192
              }
             {:id 3
-             :title "Hercule Poirot"
+             :title "Les Enquêtes d'Hercule Poirot"
              :author "Agatha Christie"
              :language :fr
              :tags [:detective :crime :thriller]
+             :pages 224
              }
             {:id 4
              :title "Le Seigneur des anneaux : la communauté de l'anneau"
              :author "John Ronald Reuel Tolkien"
              :language :fr
              :tags [:fantasy :adventure]
+             :pages 423
              }])
+
+(comment                                                    ;loops
+  (for [i (range 10)]
+    i)
+  (for [book books]
+    (clojure.pprint/pprint book))
+  (filter (fn [book] (= (:language book) :fr)) books)
+  (map :title books)
+  (reduce (fn [current_value book] (+ current_value (:pages book)))
+          0 books))
+
+
+(defn search-books-by-language [books language]
+  (filter (fn [book] (= (:language book) language)) books))
+
