@@ -29,7 +29,7 @@
              :pages 423
              }])
 
-(comment                                                    ;loops
+(comment
   (for [i (range 10)]
     i)
   (for [book books]
@@ -43,3 +43,21 @@
 (defn search-books-by-language [books language]
   (filter (fn [book] (= (:language book) language)) books))
 
+
+(defn- get-author [book]
+  (:author book))
+
+(comment
+  (filter #(= (:language %) :fr) books)
+  (let [herge {:fullname "Georges Remi"
+               :nickname "Hergé"
+               :birth    {:date    1907
+                          :country "Belgique"}}
+        very-detailed-book {:comic  "Les Aventures de Tintin"
+                            :title  "Le secret de la licorne"
+                            :author herge}]
+    (:country (:birth (:author very-detailed-book))))
+  herge
+
+
+  )
