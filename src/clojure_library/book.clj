@@ -1,34 +1,8 @@
 (ns clojure-library.book
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [utils.file-reader :as reader]))
 
-(def books [{:id 1
-             :title "Romeo and Juliet"
-             :author "William Shakespeare"
-             :language :en
-             :tags [:drama :tragedy :romance]
-             :pages 336
-             }
-            {:id 2
-             :title "Roméo et Juliette"
-             :author "William Shakespeare"
-             :language :fr
-             :tags [:drama :tragedy :romance]
-             :pages 192
-             }
-            {:id 3
-             :title "Les Enquêtes d'Hercule Poirot"
-             :author "Agatha Christie"
-             :language :fr
-             :tags [:detective :crime :thriller]
-             :pages 224
-             }
-            {:id 4
-             :title "Le Seigneur des anneaux : la communauté de l'anneau"
-             :author "John Ronald Reuel Tolkien"
-             :language :fr
-             :tags [:fantasy :adventure]
-             :pages 423
-             }])
+(def books (reader/load-edn "resources/books.edn"))
 
 (comment
   (for [i (range 10)]

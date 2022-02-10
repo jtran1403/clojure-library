@@ -1,0 +1,28 @@
+[{:id 1
+  :title "Romeo and Juliet"
+  :author "William Shakespeare"
+  :language :en
+  :tags [:drama :tragedy :romance]
+  :pages 336
+  }
+ {:id 2
+  :title "Roméo et Juliette"
+  :author "William Shakespeare"
+  :language :fr
+  :tags [:drama :tragedy :romance]
+  :pages 192
+  }
+ {:id 3
+  :title "Les Enquêtes d'Hercule Poirot"
+  :author "Agatha Christie"
+  :language :fr
+  :tags [:detective :crime :thriller]
+  :pages 224
+  }
+ {:id 4
+  :title "Le Seigneur des anneaux : la communauté de l'anneau"
+  :author "John Ronald Reuel Tolkien"
+  :language :fr
+  :tags [:fantasy :adventure]
+  :pages 423
+  }]
