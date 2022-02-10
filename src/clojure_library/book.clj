@@ -1,4 +1,5 @@
-(ns clojure-library.book)
+(ns clojure-library.book
+  (:require [clojure.string :as str]))
 
 (def books [{:id 1
              :title "Romeo and Juliet"
@@ -56,8 +57,24 @@
         very-detailed-book {:comic  "Les Aventures de Tintin"
                             :title  "Le secret de la licorne"
                             :author herge}]
-    (:country (:birth (:author very-detailed-book))))
-  herge
+    ;(:country (:birth (:author very-detailed-book)))
+    ;first-thread
+    (-> very-detailed-book :author :birth :country str/upper-case)
 
+    (-> 1
+        (+ 2)
+        (+ 5))
+    (+ (+ 1 2) 5)
 
+    (-> "a"
+        (str "b" "c"))
+
+    ;last-thread
+    (->> "a"
+        (str "b" "c"))
+
+    (->> books
+         (filter #(.contains (:tags %) :tragedy))
+         (map :title))
+    )
   )
