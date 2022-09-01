@@ -1,7 +1,11 @@
 (ns clojure-library.core
+  (:require [integrant.core :as ig]
+            [clojure-library.webserver :as webserver])
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Opens the great gate of knowledge"
   [& args]
-  (println "Hello, World!"))
+  (println "Starting library app!")
+  (ig/init webserver/config)
+  )
