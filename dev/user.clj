@@ -3,7 +3,7 @@
     [integrant.repl :as ig-repl]
     [clojure-library.webserver :as webserver]))
 
-(ig-repl/set-prep! (constantly webserver/config))
+(ig-repl/set-prep! (constantly webserver/default-config))
 
 (def go ig-repl/go)
 (def halt ig-repl/halt)

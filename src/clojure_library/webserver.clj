@@ -4,12 +4,12 @@
     [ring.adapter.jetty :as jetty]
     [integrant.core :as ig]))
 
-(def config {:webserver/jetty  {:port    3000
-                                :join?   false
-                                :handler (ig/ref :webserver/routes)
-                                }
-             :webserver/routes {}
-             })
+(def default-config {:webserver/jetty  {:port    3000
+                                        :join?   false
+                                        :handler (ig/ref :webserver/routes)
+                                        }
+                     :webserver/routes {}
+                     })
 
 (defmethod ig/init-key :webserver/jetty [_ {:keys [port join? handler]}]
   (println "server running in port" port)
