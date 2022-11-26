@@ -18,7 +18,11 @@
 (defmethod ig/halt-key! :webserver/jetty [_ server]
   (.stop server))
 
-(defmethod ig/init-key :webserver/routes [_ _]
+(defn init-routes []
   (ring/ring-handler
-    (ring/router
-      ["/ping" {:get {:handler (fn [_] {:status 200 :body "pong!"})}}])))
+    (ring/router [["/ping" {:get {:handler (fn [_] {:status 200 :body "pong!"})}}]
+                  ["/" {:get {:handler (fn [_] {:status 200 :body "welcome to the library"})}}]])
+    (constantly {:status 404, :body "Book of the void"})))
+
+(defmethod ig/init-key :webserver/routes [_ _]
+  (init-routes))
