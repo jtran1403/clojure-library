@@ -8,5 +8,6 @@
   :repl-options {:init-ns user}
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
-             :dev {:dependencies [[integrant/repl "0.3.1"]]
-                   :source-paths ["dev"]}})
+             :dev     {:dependencies [[integrant/repl "0.3.1"]
+                                      [http.async.client "1.4.0"]]
+                       :source-paths ["dev"]}})

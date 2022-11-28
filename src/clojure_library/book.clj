@@ -7,8 +7,12 @@
 (defn search-books-by-language [books language]
   (filter (fn [book] (= (:language book) language)) books))
 
-(defn- get-author [{:keys [author]}]
-  author)
+(defn show-off-collection [_]
+  {:status 200 :body (str books)}
+  )
+
+
+(def routes ["/books" {:get {:handler show-off-collection}}])
 
 (comment
   (filter (fn [{:keys [language]}] (= language :fr)) books)
